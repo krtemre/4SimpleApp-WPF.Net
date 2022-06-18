@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -8,8 +9,11 @@ namespace SimBT_Deneme
 {
     public partial class DbConnect : Window
     {
+        private List<Employee> list;
+        
         public DbConnect()
         {
+            list = new List<Employee>();
             InitializeComponent();
         }
 
@@ -52,7 +56,7 @@ namespace SimBT_Deneme
                     emp.Gender = gen;
                     emp.TelNo = tel.Text;
 
-                    SaveXML.SaveData(emp, @"C:\Users\muham\Desktop\SimBT_Deneme\bin\Debug\Data.xml");
+                    list.Add(emp);
 
                     msgLabel.Content = "Veri Başarıyla Kaydedildi!";
 
@@ -86,6 +90,9 @@ namespace SimBT_Deneme
         {
             try
             {
+                if(list.Count > 0)
+                    SaveXML.SaveData(list, @"C:\Users\muham\Desktop\SimBT_Deneme\bin\Debug\Data.xml");
+
                 DataSet dataSet = new DataSet();
                 dataSet.ReadXml(@"C:\Users\muham\Desktop\SimBT_Deneme\bin\Debug\Data.xml");
                 DataView view = new DataView(dataSet.Tables[0]);
@@ -103,6 +110,12 @@ namespace SimBT_Deneme
         {
             loadMsgLabel.Content = "";
             xmlData.ItemsSource = null;
+        }
+
+        ~DbConnect()
+        {
+            SaveXML.SaveData(list, @"C:\Users\muham\Desktop\SimBT_Deneme\bin\Debug\Data.xml");
+            list.Clear();
         }
     }
 }
