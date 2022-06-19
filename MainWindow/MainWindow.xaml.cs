@@ -45,5 +45,12 @@ namespace SimBT_Deneme
             db.Show();
             Close();
         }
+
+        private void Number_Click(object sender, RoutedEventArgs e)
+        {
+            NumberQuess nq = new NumberQuess();
+            nq.Show();
+            Close();
+        }
     }
 }

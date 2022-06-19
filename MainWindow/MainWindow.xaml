@@ -22,7 +22,7 @@
                 VerticalAlignment="Top" Width="330" Height="220" Click="VctBtn_Click" FontSize="35" Foreground="DarkKhaki"/>
         <Button Grid.Row="1" Grid.Column="0" Content="Data Yükleme/Kaydeyme" HorizontalAlignment="Left" Click="DbConect_Click"
                 VerticalAlignment="Top" Width="330" Height="220" FontSize="28" Foreground="Crimson"/>
-        <Button Grid.Row="1" Grid.Column="1" Content="Boş Alan 4" HorizontalAlignment="Left" 
+        <Button Grid.Row="1" Grid.Column="1" Content="Sayı Tahmin Etme" HorizontalAlignment="Left" Click="Number_Click" 
                 VerticalAlignment="Top" Width="330" Height="220" FontSize="35" Foreground="DarkOrange"/>
 
     </Grid>
